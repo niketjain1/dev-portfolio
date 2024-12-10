@@ -12,6 +12,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
 import { useInView } from "@/hooks/UseInView";
+import SectionBanner from "./SectionBanner";
 
 const blogPosts = [
   {
@@ -54,36 +55,28 @@ export default function Blog() {
   };
 
   return (
-    <section
-      id="blog"
-      ref={ref}
-      className="min-h-screen flex flex-col items-center justify-center py-20"
-    >
-      <motion.h2
-        initial={{ opacity: 0, y: 20 }}
-        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-        transition={{ duration: 0.5 }}
-        className="text-4xl font-bold mb-12"
-      >
-        Blog Posts
-      </motion.h2>
+    <section id="blog" ref={ref} className="py-12">
+      <SectionBanner
+        title="Blog Posts"
+        subtitle="Sharing my thoughts and knowledge"
+      />
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4"
       >
         {blogPosts.map((post, index) => (
           <motion.div key={index} variants={itemVariants}>
-            <Card className="bg-gray-800 border-purple-500 h-full flex flex-col">
+            <Card className="bg-white shadow-lg border-blue-200 h-full flex flex-col">
               <CardHeader>
-                <CardTitle className="text-xl font-bold text-purple-400">
+                <CardTitle className="text-xl font-bold text-blue-600">
                   {post.title}
                 </CardTitle>
                 <CardDescription>{post.platform}</CardDescription>
               </CardHeader>
               <CardContent className="flex-grow">
-                <p className="text-gray-300">{post.description}</p>
+                <p className="text-blue-800">{post.description}</p>
               </CardContent>
               <CardFooter>
                 <Button variant="outline" className="w-full" asChild>

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 const sections = [
   { name: "Home", id: "home" },
@@ -44,15 +45,21 @@ export default function Header() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-gray-900 bg-opacity-90 backdrop-blur-sm">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-blue-900 bg-opacity-90 backdrop-blur-sm">
       <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <Link href="/" className="text-2xl font-bold text-purple-500">
-            JD
+          <Link href="/" className="text-2xl font-bold text-blue-400">
+            <Image
+              src="/logo.jpg"
+              alt="Logo"
+              width={40}
+              height={40}
+              className="object-fill rounded-full"
+            />
           </Link>
         </motion.div>
         <motion.ul
@@ -71,7 +78,7 @@ export default function Header() {
                 onClick={() => handleClick(id)}
                 className={`text-sm font-medium ${
                   activeSection === id
-                    ? "text-purple-500"
+                    ? "text-blue-400"
                     : "text-gray-300 hover:text-white"
                 }`}
               >
@@ -85,7 +92,12 @@ export default function Header() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <Button variant="outline" size="sm" asChild>
+          <Button
+            variant="outline"
+            size="sm"
+            asChild
+            className="rounded-full shadow-2xl"
+          >
             <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
               Resume
             </a>

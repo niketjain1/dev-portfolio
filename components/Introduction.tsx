@@ -3,13 +3,14 @@
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { useInView } from "@/hooks/UseInView";
+import Avatar from "./Avatar";
 
 export default function Introduction() {
   const router = useRouter();
   const [ref, isInView] = useInView({ threshold: 0.1 });
 
   const handleExplore = () => {
-    router.push("#projects");
+    router.push("#experience");
   };
 
   const containerVariants = {
@@ -29,35 +30,43 @@ export default function Introduction() {
     visible: { opacity: 1, y: 0 },
   };
 
+  const avatarVariants = {
+    hidden: { opacity: 0, scale: 0.8, rotate: -15 },
+    visible: { opacity: 1, scale: 1, rotate: 0 },
+  };
+
   return (
     <section
       id="home"
       ref={ref}
-      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16"
+      className="min-h-screen flex items-center justify-center relative pt-16 pb-12"
     >
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
-        className="text-center z-10"
+        className="text-center z-10 flex flex-col items-center justify-center"
       >
+        <motion.div variants={avatarVariants} transition={{ duration: 0.6 }}>
+          <Avatar />
+        </motion.div>
         <motion.h1 variants={itemVariants} className="text-5xl font-bold mb-4">
-          John Doe
+          Niket Jain
         </motion.h1>
         <motion.p variants={itemVariants} className="text-xl mb-4">
-          Full Stack Developer & Tech Enthusiast
+          Software Engineer & Tech Enthusiast
         </motion.p>
         <motion.p variants={itemVariants} className="text-lg mb-8 max-w-2xl">
           Passionate about creating innovative web solutions and exploring
           cutting-edge technologies. With expertise in both front-end and
-          back-end development, I bring ideas to life through clean, efficient,
-          and scalable code.
+          back-end development, and AI tech, I bring ideas to life through
+          clean, efficient, and scalable code.
         </motion.p>
         <motion.button
           variants={itemVariants}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full"
+          className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
           onClick={handleExplore}
         >
           Explore My Work
@@ -72,7 +81,7 @@ export default function Introduction() {
         {[...Array(50)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute bg-purple-500 rounded-full"
+            className="absolute bg-blue-400 rounded-full"
             style={{
               width: Math.random() * 5 + "px",
               height: Math.random() * 5 + "px",

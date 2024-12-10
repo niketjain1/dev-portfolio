@@ -6,13 +6,14 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
+  CardFooter,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Github, ExternalLink } from "lucide-react";
 import { useInView } from "@/hooks/UseInView";
+import SectionBanner from "./SectionBanner";
 
 const projects = [
   {
@@ -54,30 +55,19 @@ export default function Projects() {
   };
 
   return (
-    <section
-      id="projects"
-      ref={ref}
-      className="min-h-screen flex flex-col items-center justify-center py-20"
-    >
-      <motion.h2
-        initial={{ opacity: 0, y: 20 }}
-        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-        transition={{ duration: 0.5 }}
-        className="text-4xl font-bold mb-12"
-      >
-        Projects
-      </motion.h2>
+    <section id="projects" ref={ref} className="py-12">
+      <SectionBanner title="Projects" subtitle="Showcasing my best work" />
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4"
       >
         {projects.map((project, index) => (
           <motion.div key={index} variants={itemVariants}>
-            <Card className="bg-gray-800 border-purple-500 h-full flex flex-col">
+            <Card className="bg-white shadow-lg border-blue-200 h-full flex flex-col">
               <CardHeader>
-                <CardTitle className="text-2xl font-bold text-purple-400">
+                <CardTitle className="text-2xl font-bold text-blue-600">
                   {project.title}
                 </CardTitle>
                 <CardDescription>{project.description}</CardDescription>
@@ -90,7 +80,7 @@ export default function Projects() {
                       animate={{ opacity: 1, height: "auto" }}
                       exit={{ opacity: 0, height: 0 }}
                       transition={{ duration: 0.3 }}
-                      className="text-gray-300"
+                      className="text-blue-800"
                     >
                       {project.details}
                     </motion.p>

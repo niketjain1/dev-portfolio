@@ -76,7 +76,7 @@ export default function Header() {
             >
               <button
                 onClick={() => handleClick(id)}
-                className={`text-sm font-medium ${
+                className={`text-lg font-medium ${
                   activeSection === id
                     ? "text-blue-400"
                     : "text-gray-300 hover:text-white"
@@ -94,7 +94,7 @@ export default function Header() {
         >
           <Button
             variant="outline"
-            size="sm"
+            size="default"
             asChild
             className="rounded-full shadow-2xl"
           >

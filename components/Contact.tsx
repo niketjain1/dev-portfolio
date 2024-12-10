@@ -1,16 +1,18 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Twitter, Instagram } from "lucide-react";
+import { FaTwitter, FaLinkedin, FaInstagram } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa6";
+import { IoMail } from "react-icons/io5";
 import { useInView } from "@/hooks/UseInView";
 import SectionBanner from "./SectionBanner";
 
 const socialLinks = [
-  { icon: Github, href: "https://github.com/johndoe" },
-  { icon: Linkedin, href: "https://linkedin.com/in/johndoe" },
-  { icon: Twitter, href: "https://twitter.com/johndoe" },
-  { icon: Instagram, href: "https://instagram.com/johndoe" },
+  { icon: FaGithub, href: "https://github.com/niketjain1" },
+  { icon: FaLinkedin, href: "https://www.linkedin.com/in/niket-j/" },
+  { icon: FaTwitter, href: "https://x.com/niketj2000" },
+  { icon: FaInstagram, href: "https://www.instagram.com/niket._.j" },
+  { icon: IoMail, href: "mailto:niketj2000@gmail.com" },
 ];
 
 export default function Contact() {
@@ -41,7 +43,7 @@ export default function Contact() {
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
-        className="flex space-x-4 items-center justify-center"
+        className="flex space-x-8 items-center justify-center"
       >
         {socialLinks.map((link, index) => (
           <motion.div
@@ -50,16 +52,14 @@ export default function Contact() {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
           >
-            <Button
-              variant="outline"
-              size="icon"
-              className="text-blue-600 hover:text-blue-700 hover:border-blue-700"
-              asChild
+            <a
+              href={link.href}
+              target="_blank"
+              rel="noreferrer noopener"
+              className=" hover:cursor-pointer hover:text-red-600"
             >
-              <a href={link.href} target="_blank" rel="noopener noreferrer">
-                <link.icon className="h-6 w-6" />
-              </a>
-            </Button>
+              <link.icon className="h-8 w-8" />
+            </a>
           </motion.div>
         ))}
       </motion.div>

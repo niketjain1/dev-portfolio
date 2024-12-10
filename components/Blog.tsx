@@ -16,22 +16,18 @@ import SectionBanner from "./SectionBanner";
 
 const blogPosts = [
   {
-    title: "Mastering React Hooks",
-    description: "A deep dive into React's most powerful feature.",
-    platform: "dev.to",
-    link: "https://dev.to/johndoe/mastering-react-hooks",
-  },
-  {
-    title: "Building Scalable Node.js Applications",
-    description: "Best practices for creating enterprise-level Node.js apps.",
-    platform: "Medium",
-    link: "https://medium.com/@johndoe/building-scalable-nodejs-applications",
-  },
-  {
-    title: "The Future of Web Development",
-    description: "Exploring upcoming trends and technologies in web dev.",
-    platform: "personal blog",
-    link: "https://johndoe.com/blog/future-of-web-development",
+    title: "Reply in thread using NestJS and Gmail API",
+    description:
+      "A comprehensive guide on implementing email thread replies in NestJS applications using Gmail API, covering the importance of email threading, handling References and In-Reply-To headers, and practical implementation details with code examples.",
+    platform: "Multiple Platforms",
+    links: {
+      medium:
+        "https://medium.com/@niketj2000/reply-in-thread-using-nestjs-and-gmail-api-c4b33354cfb7",
+      devto:
+        "https://dev.to/devnik/reply-in-thread-using-nestjs-and-gmail-api-47ec",
+      linkedin:
+        "https://www.linkedin.com/posts/niket-j_webdev-nestjs-openai-activity-7190249126754713600-BIHt?utm_source=share&utm_medium=member_desktop",
+    },
   },
   // Add more blog posts as needed
 ];
@@ -78,12 +74,50 @@ export default function Blog() {
               <CardContent className="flex-grow">
                 <p className="text-blue-800">{post.description}</p>
               </CardContent>
-              <CardFooter>
-                <Button variant="outline" className="w-full" asChild>
-                  <a href={post.link} target="_blank" rel="noopener noreferrer">
-                    Read Post <ExternalLink className="ml-2 h-4 w-4" />
-                  </a>
-                </Button>
+              <CardFooter className="flex flex-col gap-2">
+                {post.links ? (
+                  <div className="flex flex-wrap gap-2 w-full">
+                    {post.links.medium && (
+                      <Button variant="outline" size="sm" asChild>
+                        <a
+                          href={post.links.medium}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Read on Medium
+                        </a>
+                      </Button>
+                    )}
+                    {post.links.devto && (
+                      <Button variant="outline" size="sm" asChild>
+                        <a
+                          href={post.links.devto}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Read on Dev.to
+                        </a>
+                      </Button>
+                    )}
+                    {post.links.linkedin && (
+                      <Button variant="outline" size="sm" asChild>
+                        <a
+                          href={post.links.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Read on LinkedIn
+                        </a>
+                      </Button>
+                    )}
+                  </div>
+                ) : (
+                  <Button variant="outline" className="w-full" asChild>
+                    <div>
+                      Read Post <ExternalLink className="ml-2 h-4 w-4" />
+                    </div>
+                  </Button>
+                )}
               </CardFooter>
             </Card>
           </motion.div>

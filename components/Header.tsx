@@ -42,14 +42,15 @@ export default function Header() {
     const element = document.getElementById(id);
     if (element) {
       setIsMenuOpen(false);
-      
+
       const headerOffset = 80;
       const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      const offsetPosition =
+        elementPosition + window.pageYOffset - headerOffset;
 
       window.scrollTo({
         top: offsetPosition,
-        behavior: "smooth"
+        behavior: "smooth",
       });
     }
   };
@@ -140,7 +141,11 @@ export default function Header() {
                 asChild
                 className="rounded-full shadow-2xl"
               >
-                <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://drive.google.com/file/d/1bHN0ei9G00ARmjfeZZQSVGhoXuZe1bAv/view?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Resume
                 </a>
               </Button>
@@ -176,7 +181,11 @@ export default function Header() {
               asChild
               className="rounded-full shadow-2xl w-full"
             >
-              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://drive.google.com/file/d/1bHN0ei9G00ARmjfeZZQSVGhoXuZe1bAv/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Resume
               </a>
             </Button>

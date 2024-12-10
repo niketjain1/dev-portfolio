@@ -20,7 +20,6 @@ const Avatar = () => {
     }
   };
 
-  console.log(isHovered);
   return (
     <div
       className="py-3 mt-5"

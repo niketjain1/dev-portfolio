@@ -28,24 +28,69 @@ body {
   @apply bg-background text-foreground;
 }
 
+/* Hide scrollbar by default but show on hover/scroll */
 ::-webkit-scrollbar {
   width: 10px;
+  display: none;  /* Hide by default */
+}
+
+/* Show scrollbar when hovering/scrolling */
+:hover::-webkit-scrollbar {
+  display: block;
 }
 
 ::-webkit-scrollbar-track {
-  background: #e6f0ff;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #3b82f6;
+  background: rgba(59, 130, 246, 0.3);
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #2563eb;
+  background: rgba(37, 99, 235, 0.5);
+}
+
+/* Add this to handle Firefox */
+* {
+  scrollbar-width: none;  /* Hide scrollbar by default in Firefox */
+}
+
+*:hover {
+  scrollbar-width: thin;  /* Show thin scrollbar on hover in Firefox */
 }
 
 .hovered {
   transform: rotateY(180deg);
   transition: transform 0.2s ease;
+}
+
+/* Add responsive base styles */
+@layer base {
+  html {
+    @apply text-base;
+  }
+
+  @screen sm {
+    html {
+      @apply text-base;
+    }
+  }
+
+  @screen lg {
+    html {
+      @apply text-base;
+    }
+  }
+}
+
+/* Add responsive container padding */
+.container {
+  @apply px-4 sm:px-6 lg:px-8;
+}
+
+/* Add responsive section padding */
+section {
+  @apply py-8 sm:py-12 lg:py-16;
 }

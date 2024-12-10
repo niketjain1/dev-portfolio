@@ -50,10 +50,16 @@ export default function Introduction() {
         <motion.div variants={avatarVariants} transition={{ duration: 0.6 }}>
           <Avatar />
         </motion.div>
-        <motion.h1 variants={itemVariants} className="text-5xl font-bold mb-4">
+        <motion.h1 
+          variants={itemVariants} 
+          className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4"
+        >
           Niket Jain
         </motion.h1>
-        <motion.p variants={itemVariants} className="text-xl mb-4">
+        <motion.p 
+          variants={itemVariants} 
+          className="text-lg sm:text-xl mb-4"
+        >
           Software Engineer & Tech Enthusiast
         </motion.p>
         <motion.p variants={itemVariants} className="text-lg mb-8 max-w-2xl">
@@ -66,7 +72,7 @@ export default function Introduction() {
           variants={itemVariants}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+          className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full"
           onClick={handleExplore}
         >
           Explore My Work

@@ -43,7 +43,7 @@ export default function Contact() {
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
-        className="flex space-x-8 items-center justify-center"
+        className="flex flex-wrap gap-4 sm:gap-8 items-center justify-center px-4"
       >
         {socialLinks.map((link, index) => (
           <motion.div

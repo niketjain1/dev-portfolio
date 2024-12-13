@@ -24,6 +24,7 @@ const projects = [
     details: `Built a Chrome Extension in JavaScript that allows users to ask questions on Youtube videos and get
 summaries, key highlights, and related topics to understand them better.`,
     github: "https://github.com/niketjain1/TubeSage",
+    live: "https://chromewebstore.google.com/detail/youtube-chatbot-assistant/ccbflgeiigoljnncfgmmjhhanccbonbn",
     tech: ["JavaScript", "Youtube API", "OpenAI"],
   },
   {
